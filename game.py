@@ -8,7 +8,6 @@
 # assigns the first card to p1 and the second card to p2.
 
 from deck import Deck
-from card import Card
 from player import Player
 
 class Game:
@@ -34,10 +33,9 @@ class Game:
 
     def play_game(self):
         cards = self.deck.cards
-        print("beginning War!")
+        print(" ---- Dealing Cards ---- /n")
         while len(cards) >= 2:
-            m = "q to quit. Any " + \
-                "key to play:"
+            m = "q to quit. Any key to play:"
             response = input(m)
             if response == 'q':
                 break
