@@ -7,6 +7,10 @@
 # Two cards are drawn each time in the loop and the play_game method 
 # assigns the first card to p1 and the second card to p2.
 
+from deck import Deck
+from card import Card
+from player import Player
+
 class Game:
     def __init__(self):
         name1 = input("p1 name ")
