@@ -9,59 +9,75 @@
 
 from deck import Deck
 from player import Player
+from treys import Card, Evaluator
+
 
 class Game:
     def __init__(self):
         name1 = input("p1 name ")
-        name2 = input("p2 name ")
+        # name2 = input("p2 name ")
+
+        # Instantiate a deck object
         self.deck = Deck()
+
+        # Instantiate a player object with a name
         self.p1 = Player(name1)
-        self.p2 = Player(name2)
+        # self.p2 = Player(name2)
 
-    def wins(self, winner):
-        w = "{} wins this round"
-        w = w.format(winner)
-        print(w)
-
-    def draw(self, p1n, p1c, p2n, p2c):
-        d = "{} drew {} {} drew {}"
-        d = d.format(p1n,
-                     p1c,
-                     p2n,
-                     p2c)
-        print(d)
-
+    # Main Function for the Game being called from main.py
     def play_game(self):
-        cards = self.deck.cards
-        print(" ---- Dealing Cards ---- /n")
-        while len(cards) >= 2:
-            m = "q to quit. Any key to play:"
-            response = input(m)
+        print(" ---- Dealing 5 Cards per Player ---- \n")
+        m = "Press q to quit. Any key to play: \n"
+        while m != "q":
+            response = input(m)            
             if response == 'q':
                 break
-            p1c = self.deck.rm_card()
-            p2c = self.deck.rm_card()
+
+            # Create a Poker Hand with 5 Cards
+            hand = []
+            for i in range(0,5):
+                print(f"value of i is: {i}")
+                # Ensure we remove cards from the deck
+                hand.append(self.deck.rm_card())
+                print(f"The {i+1} card drawn from the deck: {hand[i]}")
+
+            print(f"The full hand: {hand} \n")
+            
+            # Test printing of cards to create a hand
+            print("---- Testing Card Values ----")
+            print(f"Hand second card is: {hand[1]}")
+            print(f"Hand second card value is: {hand[1].value}")
+            print(f"Hand second card suit is: {hand[1].suit}")
+            print(f"Top card on deck is: {self.deck.cards[0]}")
+            print("---- End of Print Testing ----\n")
+            
+            # Analyze hand
+            print("---- Start Hand Analyzer Testing ----")
+        
+            # The parent class Evaluator requires two values for evaluate
+            # the values all_cards and board
+            # for this purpose board will be set as empty
+            # Can rewrite the class Evaluator in future
+
+            evaluator = Evaluator()
+            board = []
+
+            # Must translate existing hand to all_card codes
+
+            
+
+            all_cards = [ 
+                Card.new('Qs'),
+                Card.new('Th'),
+                Card.new('Th'),
+                Card.new('Th'),
+                Card.new('Th')
+            ]
+            print(evaluator.evaluate(all_cards, board))
+            print(evaluator.get_rank_class(evaluator.evaluate(all_cards, board)))
+            print(evaluator.class_to_string(2))
+            print("---- End Analyzer Testing ----\n")
+
             p1n = self.p1.name
-            p2n = self.p2.name
-            self.draw(p1n,
-                      p1c,
-                      p2n,
-                      p2c)
-            if p1c > p2c:
-                self.p1.wins += 1
-                self.wins(self.p1.name)
-            else:
-                self.p2.wins += 1
-                self.wins(self.p2.name)
 
-        win = self.winner(self.p1,
-                         self.p2)
-        print("War is over.{} wins"
-              .format(win))
 
-    def winner(self, p1, p2):
-        if p1.wins > p2.wins:
-            return p1.name
-        if p1.wins < p2.wins:
-            return p2.name
-        return "It was a tie!"

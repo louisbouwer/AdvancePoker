@@ -1,9 +1,11 @@
+
 class Card:
-    suits = ["spades",
-             "hearts",
-             "diamonds",
-             "clubs"]
-    
+    suits = ["Spades",
+             "Hearts",
+             "Diamonds",
+             "Clubs"]
+
+
     # Will remove "None" in future version
     values = [None, None,"2", "3",
               "4", "5", "6", "7",
