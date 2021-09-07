@@ -72,25 +72,31 @@ class Game:
               "J", "Q", "K", "A"]
 
             print(" -----  Testing Card Translator for Card Evaluator ---- ")
-            # evalcard = []
+            evalcards = []
             for i in range(0,5):
                 print(f"value of i is: {i}")
-                print(f"Code for {i} cards is: {evalvalues[hand[i].value]}{evalsuits[hand[i].suit]}")
-                # evalcard[i].append(evalvalues[hand[i].value],evalsuits[hand[i].suit])
+                print(f"Code for {i} evalcard is: {evalvalues[hand[i].value]}{evalsuits[hand[i].suit]}")
+                handcardvalue = evalvalues[hand[i].value]
+                handcardsuit = evalsuits[hand[i].suit]
+                print(f"handcardvalue: {handcardvalue} and handcardsuit: {handcardsuit}")
+                handcard = evalcards.append(print(evalvalues[hand[i].value],evalsuits[hand[i].suit]))
+                print(f"{handcard}")
+                print(f"evalcards number {i} is: {evalcards[i]}")
                 # print(f" evalcard is: {evalcard[i]}")
 
-            all_cards = [ 
-                Card.new('4h'),
-                Card.new('Th'),
-                Card.new('Th'),
-                Card.new('Th'),
+            hand = [
+                Card.new('2s'),
+                Card.new('3s'),
+                Card.new('4s'),
+                Card.new('5s'),
                 Card.new('Th')
-            ]
+                ]
+
             board = []
 
-            print(f"Evaluator is: {evaluator.evaluate(all_cards, board)}")
-            # print(evaluator.get_rank_class(evaluator.evaluate(hand_cards, board)))
-            # print(evaluator.class_to_string(2))
+            print(evaluator.evaluate(hand, board))
+            print(evaluator.get_rank_class(evaluator.evaluate(hand, board)))
+            print(evaluator.class_to_string(9))
             print("---- End Analyzer Testing ----\n")
 
             p1n = self.p1.name
