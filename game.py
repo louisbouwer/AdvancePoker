@@ -47,6 +47,7 @@ class Game:
             print("---- Testing Card Values ----")
             print(f"Hand second card is: {hand[1]}")
             print(f"Hand second card value is: {hand[1].value}")
+            # print(f"Hand second card suite initial is: {hand[1].value[0]}")
             print(f"Hand second card suit is: {hand[1].suit}")
             print(f"Top card on deck is: {self.deck.cards[0]}")
             print("---- End of Print Testing ----\n")
@@ -60,22 +61,36 @@ class Game:
             # Can rewrite the class Evaluator in future
 
             evaluator = Evaluator()
-            board = []
-
+            
             # Must translate existing hand to all_card codes
 
-            
+            evalsuits = ["s", "h", "d", "c"]
+
+            evalvalues = [None, None,"2", "3",
+              "4", "5", "6", "7",
+              "8", "9", "T",
+              "J", "Q", "K", "A"]
+
+            print(" -----  Testing Card Translator for Card Evaluator ---- ")
+            # evalcard = []
+            for i in range(0,5):
+                print(f"value of i is: {i}")
+                print(f"Code for {i} cards is: {evalvalues[hand[i].value]}{evalsuits[hand[i].suit]}")
+                # evalcard[i].append(evalvalues[hand[i].value],evalsuits[hand[i].suit])
+                # print(f" evalcard is: {evalcard[i]}")
 
             all_cards = [ 
-                Card.new('Qs'),
+                Card.new('4h'),
                 Card.new('Th'),
                 Card.new('Th'),
                 Card.new('Th'),
                 Card.new('Th')
             ]
-            print(evaluator.evaluate(all_cards, board))
-            print(evaluator.get_rank_class(evaluator.evaluate(all_cards, board)))
-            print(evaluator.class_to_string(2))
+            board = []
+
+            print(f"Evaluator is: {evaluator.evaluate(all_cards, board)}")
+            # print(evaluator.get_rank_class(evaluator.evaluate(hand_cards, board)))
+            # print(evaluator.class_to_string(2))
             print("---- End Analyzer Testing ----\n")
 
             p1n = self.p1.name
