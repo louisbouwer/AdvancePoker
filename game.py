@@ -14,7 +14,8 @@ from treys import Card, Evaluator
 
 class Game:
     def __init__(self):
-        name1 = input("p1 name ")
+        print("---- Start Poker Game ----")
+        name1 = input("   Please type in Player's Name: ")
         # name2 = input("p2 name ")
 
         # Instantiate a deck object
@@ -27,7 +28,7 @@ class Game:
     # Main Function for the Game being called from main.py
     def play_game(self):
         print(" ---- Dealing 5 Cards per Player ---- \n")
-        m = "Press q to quit. Any key to play: \n"
+        m = "   Press q to quit. Any key to play: \n"
         while m != "q":
             response = input(m)            
             if response == 'q':
@@ -53,7 +54,7 @@ class Game:
             print("---- End of Print Testing ----\n")
             
             # Analyze hand
-            print("---- Start Hand Analyzer Testing ----")
+            print("---- Start Poker Hand Analyzer Testing ----")
         
             # The parent class Evaluator requires two values for evaluate
             # the values all_cards and board
@@ -72,33 +73,33 @@ class Game:
               "J", "Q", "K", "A"]
 
             print(" -----  Testing Card Translator for Card Evaluator ---- ")
-            evalcards = []
+            handcard = []
             for i in range(0,5):
                 print(f"value of i is: {i}")
                 print(f"Code for {i} evalcard is: {evalvalues[hand[i].value]}{evalsuits[hand[i].suit]}")
                 handcardvalue = evalvalues[hand[i].value]
                 handcardsuit = evalsuits[hand[i].suit]
+                handcard.append(handcardvalue + handcardsuit)
                 print(f"handcardvalue: {handcardvalue} and handcardsuit: {handcardsuit}")
-                handcard = evalcards.append(print(evalvalues[hand[i].value],evalsuits[hand[i].suit]))
-                print(f"{handcard}")
-                print(f"evalcards number {i} is: {evalcards[i]}")
-                # print(f" evalcard is: {evalcard[i]}")
+                print(f"handcard {i} is: {handcard[i]}")
+                print(f"complete list of handcard is: {handcard}")
 
-            hand = [
-                Card.new('2s'),
-                Card.new('3s'),
-                Card.new('4s'),
-                Card.new('5s'),
-                Card.new('Th')
+            # Poker hand requires 5 cards
+            ahand = [
+                Card.new(handcard[0]),
+                Card.new(handcard[1]),
+                Card.new(handcard[2]),
+                Card.new(handcard[3]),
+                Card.new(handcard[4])
                 ]
 
-            board = []
+            # For this poker version there is no cards on the table
+            aboard = []
 
-            print(evaluator.evaluate(hand, board))
-            print(evaluator.get_rank_class(evaluator.evaluate(hand, board)))
-            print(evaluator.class_to_string(9))
+            print("\n---- Poker Hand Analyzer Final Results ----")
+            print(f"   Evaluator score: {evaluator.evaluate(ahand, aboard)}")
+            print(f"   Evaluator rank class: {evaluator.get_rank_class(evaluator.evaluate(ahand, aboard))}")
+            rank_class = evaluator.get_rank_class(evaluator.evaluate(ahand, aboard))
+            print(f"   Evaluator rank_class input value: {rank_class}")
+            print(f"   Poker hand class: *** {evaluator.class_to_string(rank_class)} ***")
             print("---- End Analyzer Testing ----\n")
-
-            p1n = self.p1.name
-
-
