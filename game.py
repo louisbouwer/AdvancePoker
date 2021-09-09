@@ -1,11 +1,9 @@
-# Create a new Deck object, store it in the instance variable deck, 
-# and create two Player objects using the names in name1 and name2. 
-# The play_game method of the Game class starts the game. 
+# Created a new Deck object, store it in the instance variable deck. 
+# Create a Player objects using the names in name1, and in future name2, etc. 
+# The play_game method of the Game class manages the poker game. 
 # There is a loop in the method that maintains the game as long 
-# as there are two or more cards left in the deck, and 
-# as long as the variable response is not equal to q .
-# Two cards are drawn each time in the loop and the play_game method 
-# assigns the first card to p1 and the second card to p2.
+# as the variable m response is not equal to q.
+# Five cards are drawn each time in the loop within the play_game function. 
 
 from deck import Deck
 from player import Player
