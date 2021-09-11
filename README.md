@@ -1,10 +1,20 @@
-# AdvancePoker
+## AdvancePoker
+
+# Current State
+A production running program version of AdvancePoker is available in the "main" branch.
+The APokerv20 branch is being transformed to be use with Docer.
+The APokerv20Web branch is being used to add the Flask web application.
 
 
+# Running the Application
+Regarding the source code in /app directory:
+•	Start with file main.py.
+•	All “print” statements in the game.py file was left intentionally for debugging reviews.
+•	The “treys” python module library to analyze a poker card hand was imported. 
+•	To install:  pip install treys
 
 
-
-Sources:
+# Sources:
 (1) Card Game with Pyhton - Arman Kharwal - Oct 4, 2020
 https://thecleverprogrammer.com/2020/10/04/card-game-with-python
 - This helped to create the framework for this game.

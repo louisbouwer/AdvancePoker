@@ -3,7 +3,7 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=game --cov=deck --cov=card test_adv_poker.py
+	python -m pytest -vv --cov=game --cov=deck --cov=card ./app/test_adv_poker.py
 
 format:
 	black *.py
