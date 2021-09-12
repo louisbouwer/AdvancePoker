@@ -9,6 +9,11 @@ class Deck:
                 self.cards.append(Card(i,j))
         shuffle(self.cards)
 
+    def deck_count(self):
+        deck_total_count = len(self.cards)
+        print(f"\nDeck: There are {deck_total_count} in the deck of cards\n")
+        return deck_total_count
+
     def rm_card(self):
         if len(self.cards) == 0:
             return

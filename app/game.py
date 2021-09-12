@@ -18,7 +18,8 @@ class Game:
 
         # Instantiate a deck object
         self.deck = Deck()
-
+        self.deck.deck_count()
+        print(f"\nGame: There are {len(self.deck.cards)} in the deck of cards\n")
         # Instantiate a player object with a name
         self.p1 = Player(name1)
         # self.p2 = Player(name2)
@@ -29,7 +30,7 @@ class Game:
         m = "   Press q to quit. Any key to play: \n"
         while m != "q":
             response = input(m)            
-            if response == 'q':
+            if response == 'q' or int(self.deck.deck_count()) < 5:
                 break
 
             # Create a Poker Hand with 5 Cards
@@ -65,7 +66,7 @@ class Game:
 
             evalsuits = ["s", "h", "d", "c"]
 
-            evalvalues = [None, None,"2", "3",
+            evalvalues = ["None0", "None1", "2", "3",
               "4", "5", "6", "7",
               "8", "9", "T",
               "J", "Q", "K", "A"]
@@ -101,3 +102,7 @@ class Game:
             print(f"   Evaluator rank_class input value: {rank_class}")
             print(f"   Poker hand class: *** {evaluator.class_to_string(rank_class)} ***")
             print("---- End Analyzer Testing ----\n")
+
+            print("---- Remaining Cards in the Deck ----\n")
+            self.deck.deck_count()
+
