@@ -1,7 +1,10 @@
 from game import Game
 
+game = Game()
 
-if __name__ == '__main__':
-    game = Game()
-    game.play_game()
+# Web Application Call
+game.index()
+
+# Local Console Call
+game.play_game()
 

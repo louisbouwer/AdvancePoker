@@ -10,7 +10,8 @@ The APokerv20Web branch is being used to add the Flask web application.
 Regarding the source code in /app directory:
 •	Start with file main.py.
 •	All “print” statements in the game.py file was left intentionally for debugging reviews.
-•	The “treys” python module library to analyze a poker card hand was imported. 
+•	The “treys” python library to analyze a poker card hand was imported. 
+•   The "flask" python library to manage the web application framework.
 •	To install:  pip install treys
 
 
@@ -30,6 +31,9 @@ https://www.megacolorboy.com/posts/poker-hand-analyser-in-python
 https://github.com/ihendley/treys
 - This appears to be the best available hand analyzer for Python.
 - Treys (originally Deuces) was written by Will Drevo for the MIT Pokerbots Competition. 
+
+(5) Real Python - Create Python Web Applications - Feb, 2021
+https://realpython.com/python-web-applications 
 
 
 
