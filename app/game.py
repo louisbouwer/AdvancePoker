@@ -5,15 +5,9 @@
 # as the variable m response is not equal to q.
 # Five cards are drawn each time in the loop within the play_game function. 
 
-from flask import Flask
-from flask import request, escape # jsonify
-
 from deck import Deck
 from player import Player
 from treys import Card, Evaluator
-
-# Setup Flask Web Application Framework
-app = Flask(__name__)
 
 # Setup Global Variables
 cont_play = ""
@@ -22,7 +16,7 @@ class Game:
     # WTF: Explain the self variable.
     def __init__(self):
         print("---- Start Poker Game ----")
-        name1 = "Player"
+        self.name1 = "Player"
         # name1 = input("   Please type in Player's Name: ")
         # name2 = input("p2 name ")
 
@@ -30,9 +24,10 @@ class Game:
         self.deck = Deck()
         self.deck.deck_count()
         print(f"\nGame: There are {len(self.deck.cards)} in the deck of cards\n")
-        # Instantiate a player object with a name
-        self.p1 = Player(name1)
+        # Instantiate a player object with a name p1
+        self.p1 = Player(self.name1)
         # self.p2 = Player(name2)
+        print("Done with class instantiation")
 
     # Main Function for the Game being called from main.py
     # Flask URL Route: Capture User Action via URL to continue 
@@ -43,30 +38,8 @@ class Game:
     # You need to fetch it from the global object to be able to use it in your function.
     # Flask’s built-in escape(), which converts the special HTML characters <, >, and & 
     # into equivalent representations that can be displayed correctly.
-    @app.route("/")
-    def index(self):
-        """
-        cont_play = str(escape(request.args.get("Player", "")))
-        print(f"cont_play : {cont_play}")
-        
-        if cont_play != "": 
-            self.play_game()
-        else:
-            print(f"Waiting for HTML response")
-        """
 
-        #WTF:  With if statement WITHOUT else, will NOT see methods.
-        return (""" <h1>Advance Poker</h1>
-                <p>&emsp;This is a 5 card draw Poker Bot.</p>
-                <p>&emsp;First you need to type your name, then.</p>
-                <form action="" method="get">
-                <label for="Player">&emsp;First Name:</label>
-                <input type="text" name="Player" value="Player"><br><br>
-                <p>&emsp;Click on the Continue button for the bot to draw 5 cars.</p>
-                <input type="submit" value="Continue">
-                </form> """ 
-            )
-
+    
     def play_game(self):
         print(" ---- Dealing 5 Cards per Player ---- \n")
         print(f"play_game : cont_play : {cont_play}")
@@ -150,18 +123,19 @@ class Game:
             print("---- Remaining Cards in the Deck ----\n")
             self.deck.deck_count()
 
-            return (
+            
+            return ( "This is text from play_game"   
                 """ <h1>Advance Poker</h1>
                     <p>&emsp;This is a 5 card draw Poker Bot.</p>
                     <p>&emsp;The 5 cards you received were the following</p>
-                """ 
+                 
                 + evaluator.class_to_string(rank_class) +
                 "<p>&emsp;There are" + self.deck.deck_count() + "cards left</p>"
-                """ <form action="" method="get">
+                 <form action="" method="get">
                     <input type="submit" value="Continue">
                     </form>
                 """
             )
 
-# Startup the Flask Web Server
-app.run(host='127.0.0.1', port=5000, debug=True)
+
+
