@@ -9,11 +9,7 @@ from deck import Deck
 from player import Player
 from treys import Card, Evaluator
 
-# Setup Global Variables
-cont_play = ""
-
 class Game2:
-    # WTF: Explain the self variable.
     def __init__(self):
         print("---- Start Poker Game ----")
         self.name1 = "Player"
@@ -23,11 +19,16 @@ class Game2:
         # Instantiate a deck object
         self.deck = Deck()
         self.deck.deck_count()
-        print(f"\nGame: There are {len(self.deck.cards)} in the deck of cards\n")
+        print(f"\nInstantiate Game: There are {len(self.deck.cards)} in the deck of cards\n")
         # Instantiate a player object with a name p1
         self.p1 = Player(self.name1)
         # self.p2 = Player(name2)
         print("Done with class instantiation")
+
+    def new_deck(self):
+        # Instantiate a deck object
+        self.deck = Deck()
+        print(f"\nNew Deck Game: There are {len(self.deck.cards)} cards in the deck of cards\n")
 
     # Main Function for the Game being called from main.py
     # Flask URL Route: Capture User Action via URL to continue 
@@ -42,13 +43,6 @@ class Game2:
     
     def play_game(self):
         print(" ---- Dealing 5 Cards per Player ---- \n")
-        print(f"play_game : cont_play : {cont_play}")
-        m = "" # "   Press q to quit. Any key to play: \n" 
-
-        #while m != "":  # and Contplay == 0:
-        #    response = input(m)            
-        #    if response == 'q' or int(self.deck.deck_count()) < 5:
-        #        break
 
         # Create a Poker Hand with 5 Cards
         hand = []

@@ -29,6 +29,12 @@ class Game:
         # self.p2 = Player(name2)
         print("Done with class instantiation")
 
+    def new_deck(self):
+        # Instantiate a deck object
+        self.deck = Deck()
+        self.deck.deck_count()
+        print(f"\nGame: There are {len(self.deck.cards)} in the deck of cards\n")
+
     # Main Function for the Game being called from main.py
     # Flask URL Route: Capture User Action via URL to continue 
     # Flask URL Route: Create an initial HTML from to capture if the Continue button has been pressed

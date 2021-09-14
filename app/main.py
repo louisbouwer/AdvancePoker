@@ -23,15 +23,15 @@ def index():
     
     print("This is inside the index method")
 
+    # This is a Flask work around to be able to call the play_game methods
     cont_play = str(escape(request.args.get("Player", "")))
     print(f"cont_play : {cont_play}")
-
-    # This is a Flask work around to be able to call the play_game methods
-    if cont_play != "": 
+  
+    if cont_play != "":
         web_hand_html = str(game.play_game())
     else:
         web_hand_html = "&emsp;Waiting for HTML response"
-    
+   
     print(f"web_hand_html : {web_hand_html}")
     return (""" <h1>Advance Poker</h1>
             &emsp;This is a 5 card draw Poker Bot. <br>
@@ -46,8 +46,8 @@ def index():
             """
         )
 
-def new_func():
-    web_hand_hmtl = ""
+# def new_func():
+#    web_hand_hmtl = ""
 
 
 # Startup the Flask Web Server
